@@ -1,0 +1,9 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/michalzamboch/programming/cpp/window-manager-cpp/list_windows",
+            "binaryPath": "/home/michalzamboch/programming/cpp/window-manager-cpp/list_windows/main.out",
+            "binaryArgs": []
+        }
+    ]
+}

@@ -1,9 +1,9 @@
 
-CC = gcc
+CC = g++
 CFLAGS = -Wall
 LIBS = -lX11
 TARGET = main.out
-SOURCE = main.c
+SOURCE = main.cpp
 
 all: $(TARGET)
 
