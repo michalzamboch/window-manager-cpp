@@ -42,7 +42,9 @@ int main()
                 if (auto str = GetWindowName(display, children[i]))
                 {
                     std::cout << "ID: " << children[i]
-                              << " Name: " << *str << std::endl;
+                              << " Name: \"" << *str << "\"" 
+                              << " [" << attrs.x << ":" << attrs.y << "]"
+                              << " [" << attrs.width << ":" << attrs.height << "]" << std::endl;
                 }
                 else
                 {
