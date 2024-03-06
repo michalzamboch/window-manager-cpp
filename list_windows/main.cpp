@@ -6,6 +6,7 @@
 #include <X11/Xlib.h>
 
 std::optional<std::string> GetWindowName(Display *display, const Window &window);
+void PrintCurrentWindow(Display *display);
 
 int main()
 {
@@ -42,7 +43,7 @@ int main()
                 if (auto str = GetWindowName(display, children[i]))
                 {
                     std::cout << "ID: " << children[i]
-                              << " Name: \"" << *str << "\"" 
+                              << " Name: \"" << *str << "\""
                               << " [" << attrs.x << ":" << attrs.y << "]"
                               << " [" << attrs.width << ":" << attrs.height << "]" << std::endl;
                 }
@@ -56,6 +57,8 @@ int main()
         // Free the children array
         XFree(children);
     }
+
+    PrintCurrentWindow(display);
 
     // Close the display
     XCloseDisplay(display);
@@ -88,4 +91,14 @@ std::optional<std::string> GetWindowName(Display *display, const Window &window)
     XFree(prop);
 
     return finalName;
+}
+
+void PrintCurrentWindow(Display *display)
+{
+    Window focusedWindow;
+    int revertTo;
+    XGetInputFocus(display, &focusedWindow, &revertTo);
+
+    // Print the window ID
+    std::cout << "Currently focused window ID: " << focusedWindow << std::endl;
 }
